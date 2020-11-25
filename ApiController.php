@@ -98,26 +98,26 @@ class AnimesController
                         		if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                         			if ( $i == $episodes ) {
 										http_response_code(200);
-		                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => true, "link" => $links_format = str_replace(substr($links_format, -7), $i . substr($links_format, -4), $links_format)]);
+		                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => true, "link" => $links_format = str_replace(substr($links_format, -7), $i . substr($links_format, -4), $links_format), "status" => "HTTP/1.1 200"]);
                         			} else {
                         				continue;
                         			}
                         		} else {
                         			http_response_code(200);
-	                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => false, "link" => $links_format = str_replace(substr($links_format, -7), $i . substr($links_format, -4), $links_format)]);
+	                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => false, "link" => $links_format = str_replace(substr($links_format, -7), $i . substr($links_format, -4), $links_format), "status" => "HTTP/1.1 200"]);
                         		}
                         	} else {
                         		$links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format);
                         		if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                         			if ( $i == $episodes ) {
 										http_response_code(200);
-		                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => true, "link" => $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format)]);
+		                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => true, "link" => $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format), "status" => "HTTP/1.1 200"]);
                         			} else {
                         				continue;
                         			}
                         		} else {
                         			http_response_code(200);
-	                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => false, "link" => $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format)]);
+	                    			return json_encode(["anime" => $anime, "episodes_found" => $i, "found_all" => false, "link" => $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format), "status" => "HTTP/1.1 200"]);
                         		}
                         	}
                         }
