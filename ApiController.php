@@ -159,7 +159,7 @@ class AnimesController
 								continue;
 							} else {
 								http_response_code(200);
-                        		return json_encode(["anime" => $anime, "episodes_found" => $count - 1, "link_last_episode_found" => $links_format = str_replace(substr($links_format, -6), $count - 1 . substr($links_format, -4), $links_format)]);
+                        		return json_encode(["anime" => $anime, "episodes_found" => $count - 1, "link_last_episode_found" => $links_format = str_replace(substr($links_format, -6), $count - 1 . substr($links_format, -4), $links_format), "status" => "HTTP/1.1 200"]);
 							}
 						}                  
                     } else if ( $links_format == end($links) ) {
