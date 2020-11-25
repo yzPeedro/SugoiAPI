@@ -56,7 +56,7 @@ class AnimesController
                         return json_encode(["anime" => $anime, "status_in_api" => true, "status" => "HTTP/1.1 200"]);
                     } else if ( $links_format == end($links) ) {
                         http_response_code(404);
-                        return json_encode(["error" => "Not Found", "status" => "HTTP/1.1 404"]);
+                        return json_encode(["anime" => $anime, "status_in_api" => false, "status" => "HTTP/1.1 404"]);
                     }
                 }
             } else {
