@@ -18,6 +18,8 @@ class AnimesController
                 $links = [ 
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.mp4", //01
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.mp4",//01
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/$episode.mp4",
                 "https://cdn02.fluehost.com/a/$anime/hd/$episode.mp4", //01
                 "https://ns538468.ip-144-217-72.net/1/$anime/$episode.mp4", //01
                 "https://ns569568.ip-51-79-82.net/Uploads/Animes/$anime_FC/$anime/$episode.mp4" //01
@@ -48,6 +50,8 @@ class AnimesController
                 $links = [ 
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/01.mp4",
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/01.mp4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/01.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/01.mp4",
                 "https://cdn02.fluehost.com/a/$anime/hd/02.mp4",
                 "https://ns538468.ip-144-217-72.net/1/$anime/01.mp4",
                 "https://ns569568.ip-51-79-82.net/Uploads/Animes/$anime_FC/$anime/01.mp4" 
