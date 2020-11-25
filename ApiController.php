@@ -48,7 +48,7 @@ class AnimesController
                 "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/01.mp4",
                 "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/01.mp4",
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime/hd/02.mp4"
+                "https://cdn02.fluehost.com/a/$anime/hd/01.mp4"
                 ];
                 foreach ( $links as $links_format ) {
                     if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
