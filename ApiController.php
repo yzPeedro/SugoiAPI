@@ -15,7 +15,6 @@ class AnimesController
                 $anime_FC = ucfirst($anime[0]);
                 $anime_fc = $anime[0];                
                 ($episode < 10 && substr($episode, -1)) ? $episode = "0" . $episode : false;
-                ($episode < 10 && substr($episode, -1)) ? $episode_00 = "0" . $episode : $episode_00 = $episode;
                 $links = [ 
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.mp4", //01
                 "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.mp4",//01
