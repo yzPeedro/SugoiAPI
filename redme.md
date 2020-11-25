@@ -13,7 +13,7 @@ Nossa REST API é totalmente baseada no protocolo GET, sendo assim, conheça nos
 ## Parâmetros
 
 | Requisição | HTTP | Descrição | Paramêtros |
-| :--- | :---: | :---: | :---: | ---: |
+| :--- | :---: | :---: | :---: | :---: |
 | /get_episode | GET | Essa função será responsável por retornar um determinado episódio | (anime, episódio) |
 | /verify_if_anime_exists | GET | Essa função será responsável por retornar um valor TRUE ou FALSE caso o anime exista ou não. | (anime) |
 | /verify_if_exists_all_episodes | GET | Essa função será responsável por retornar todos os episódios (caso existam) passados por parâmetro | (anime, episódios) |
@@ -24,7 +24,7 @@ Nossa REST API é totalmente baseada no protocolo GET, sendo assim, conheça nos
 ## Códigos de requisições (HTTP)
 
 | Código | Status | Motivo |
-| :--- | :---: | --: |
+| :--- | :---: | :--: |
 | 200 | OK | Requisição e resposta enviada com sucesso |
 | 404 | Not Found | Anime não encontrado ou Link de requisição não encontrado pela API |
 | 400 | Bad Request | Link requisitado pelo cliente está incorreto |
