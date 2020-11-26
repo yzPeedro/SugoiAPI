@@ -40,7 +40,7 @@ class AnimesController
     public function searchAnime( $anime ) {
         try {
             $anime = str_replace([" "], "-", strtolower($anime));
-            $anime = str_replace(["legendado", "dublado"], "", $anime);
+            $anime = str_replace(["legendado", "dublado","-legendado", "-dublado"], "", $anime);
             $anime_FC = ucfirst($anime[0]);
             $anime_fc = $anime[0];
             $links = [ 
