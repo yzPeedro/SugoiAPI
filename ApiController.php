@@ -59,7 +59,7 @@ class AnimesController
             "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/01.mp4",
             "https://cdn02.fluehost.com/a/$anime-legendado/hd/01.mp4",
 
-            "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-dublado/01.mp4",
+            "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-dublado/01.MP4",
             "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-dublado/01.mp4",
             "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-dublado/01.mp4",
             "https://cdn02.fluehost.com/a/$anime-dublado/hd/01.mp4"
