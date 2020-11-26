@@ -14,7 +14,7 @@ class AnimesController
                 $anime = str_replace([" ", "%20"], "-", strtolower($anime));
                 $anime_FC = ucfirst($anime[0]);
                 $anime_fc = $anime[0];                
-                ($episode < 10 && substr($episode, 1) != "0") ? $episode = "0" . $episode : false;
+                ($episode < 10 && substr($episode, 0, 1) != "0") ? $episode = "0" . $episode : false;
                 $links = [ 
                 "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/$episode.mp4",
                 "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/$episode.mp4",
@@ -81,6 +81,7 @@ class AnimesController
     			$anime = str_replace([" ", "%20"], "-", strtolower($anime));
                 $anime_FC = ucfirst($anime[0]);
                 $anime_fc = $anime[0];
+                ($episodes < 10 && substr($episodes, 0, 1) != "0") ? $episodes = "0" . $episodes : false;
                 $links = [ 
                 "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/01.mp4",
                 "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/01.mp4",
