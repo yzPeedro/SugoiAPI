@@ -17,6 +17,8 @@ if ( isset($_GET['url']) && !empty($_GET['url']) ) {
                 print_r($app->verifyIfExistsAllEpisodes($url[3], $url[4]));
             } elseif( $url[2] == "count_episodes" && isset($url[3]) && !isset($url[4])) {
                 print_r($app->countEpisodes($url[3]));
+            } else if( $url[2] == "search_anime" && isset($url[3]) && !isset($url[4]) ) {
+                print_r($app->searchAnime($url[3]));
             } else {
                 print_r(json_encode(["error" => "Bad Request", "status" => "HTTP/1.1 400"]));
                 http_response_code(400);    
