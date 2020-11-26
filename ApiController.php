@@ -41,7 +41,7 @@ class AnimesController
     {
         try {
             if ( !empty($anime) ) {
-                $anime = str_replace([" ", "%20"], "-", strtolower($anime));
+                $anime = str_replace([" "], "-", strtolower($anime));
                 $anime_FC = ucfirst($anime[0]);
                 $anime_fc = $anime[0];
                 $links = [ 
