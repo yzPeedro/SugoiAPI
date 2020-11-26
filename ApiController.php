@@ -53,7 +53,7 @@ class AnimesController
                 foreach ( $links as $links_format ) {
                     if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                         http_response_code(200);
-                        return json_encode(["anime" => $anime, "status_in_api" => true, "status" => "HTTP/1.1 200", "found_at" => $links_format]);
+                        return json_encode(["anime" => $anime, "status_in_api" => true, "found_at" => $links_format, "status" => "HTTP/1.1 200"]);
                     } else if ( $links_format == end($links) ) {
                         http_response_code(404);
                         return json_encode(["anime" => $anime, "status_in_api" => false, "status" => "HTTP/1.1 404"]);
