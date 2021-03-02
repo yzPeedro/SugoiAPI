@@ -2,11 +2,18 @@
 
 class ApiController
 {
-    public function searchAnime( $anime )
+    public function searchAnime( $anime = '')
     {
         try {
 
-            $anime = str_replace([" "], "-", strtolower($anime));
+            if ( empty($anime) ) {
+                dd(json_encode([
+                    "error" => "Bad Request",
+                    "status" => "400"
+                ]));
+            }
+
+            $anime = str_replace([" ", "_", "+"], "-", strtolower($anime));
             $anime = str_replace(["legendado", "dublado","-legendado", "-dublado"], "", $anime);
             $anime_FC = ucfirst($anime[0]);
             $anime_fc = $anime[0];
@@ -38,17 +45,23 @@ class ApiController
                     array_push($links_succ, $links_format);
                     continue;
                 } elseif( $links_format == end($links) ) {
-                    dd(json_encode(
-                        [
-                            "anime" => [
-                                "nome" => ucFirst(str_replace("-", " ", $anime)),
-                                "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado",
-                                "slug" => $anime
-                            ],
-                            "links" => $links_succ,
-                            "status" => "HTTP/1.1 200"
-                        ]
-                    ));
+                    if( !empty($links_succ) ) {
+                        dd(json_encode(
+                            [
+                                "anime" => [
+                                    "nome" => ucFirst(str_replace("-", " ", $anime)),
+                                    "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado",
+                                    "slug" => $anime
+                                ],
+                                "links" => $links_succ,
+                                "status" => "HTTP/1.1 200"
+                            ]
+                        ));
+                    } else {
+                        dd(json_encode(["error" => "Not Found", "status" => "HTTP/1.1 404"]), false);
+                        http_response_code(404);
+                        die;
+                    }
                 }
             }
 
