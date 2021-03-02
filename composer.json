@@ -1,0 +1,15 @@
+{
+    "name": "familia/htdocs",
+    "authors": [
+        {
+            "name": "yzPeedro",
+            "email": "pedrocruzpessoa16@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    }
+}
