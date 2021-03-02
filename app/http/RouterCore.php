@@ -57,18 +57,18 @@ class RouterCore
                                 break;
                             }
                         } else {
-                            echo "not found";
+                            return json_encode(["error" => "Not Found", "status" => "HTTP/1.1 404"]);
                             http_response_code(404);
                             break;
                         }
                     } else {
-                         echo "not found";
+                         return json_encode(["error" => "Not Found", "status" => "HTTP/1.1 404"]);
                             http_response_code(404);
                             break;
                     }
                 }
             }elseif( $r == end($this->routes) ) {
-                echo "not found";
+                return json_encode(["error" => "Not Found", "status" => "HTTP/1.1 404"]);
                 http_response_code(404);
                 die;
             }
