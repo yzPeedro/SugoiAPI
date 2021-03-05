@@ -172,41 +172,41 @@ class ApiController
             ($episode < 10 && substr($episode, 0, 1) != "0") ? $episode = "0" . $episode : false;
             
             $links = [ 
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/01.mp4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/01.mp4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime/hd/01.mp4",
-                "https://servertv001.com/animes/$anime_fc/$anime/01.mp4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/$episode.mp4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.mp4",
+                "https://cdn02.fluehost.com/a/$anime/hd/$episode.mp4",
+                "https://servertv001.com/animes/$anime_fc/$anime/$episode.mp4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/01.MP4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/01.MP4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/01.MP4",
-                "https://cdn02.fluehost.com/a/$anime/hd/01.MP4",
-                "https://servertv001.com/animes/$anime_fc/$anime/01.MP4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/$episode.MP4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/$episode.MP4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.MP4",
+                "https://cdn02.fluehost.com/a/$anime/hd/$episode.MP4",
+                "https://servertv001.com/animes/$anime_fc/$anime/$episode.MP4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/01.mp4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/01.mp4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime-legendado/hd/01.mp4",
-                "https://servertv001.com/animes/$anime_fc/$anime-legendado/01.mp4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/$episode.mp4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/$episode.mp4",
+                "https://cdn02.fluehost.com/a/$anime-legendado/hd/$episode.mp4",
+                "https://servertv001.com/animes/$anime_fc/$anime-legendado/$episode.mp4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/01.MP4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/01.MP4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/01.MP4",
-                "https://cdn02.fluehost.com/a/$anime-legendado/hd/01.MP4",
-                "https://servertv001.com/animes/$anime_fc/$anime-legendado/01.MP4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/$episode.MP4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/$episode.MP4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/$episode.MP4",
+                "https://cdn02.fluehost.com/a/$anime-legendado/hd/$episode.MP4",
+                "https://servertv001.com/animes/$anime_fc/$anime-legendado/$episode.MP4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-dublado/01.mp4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-dublado/01.mp4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-dublado/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime-dublado/hd/01.mp4",
-                "https://servertv001.com/animes/$anime_fc/$anime-dublado/01.mp4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-dublado/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-dublado/$episode.mp4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-dublado/$episode.mp4",
+                "https://cdn02.fluehost.com/a/$anime-dublado/hd/$episode.mp4",
+                "https://servertv001.com/animes/$anime_fc/$anime-dublado/$episode.mp4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/01.MP4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/01.MP4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/01.MP4",
-                "https://cdn02.fluehost.com/a/$anime-legendado/hd/01.MP4",
-                "https://servertv001.com/animes/$anime_fc/$anime-legendado/01.MP4"
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/$episode.MP4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/$episode.MP4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/$episode.MP4",
+                "https://cdn02.fluehost.com/a/$anime-legendado/hd/$episode.MP4",
+                "https://servertv001.com/animes/$anime_fc/$anime-legendado/$episode.MP4"
             ];
 
             $links_succ = [];
