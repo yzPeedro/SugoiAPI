@@ -4,6 +4,7 @@ class ApiController
 {
     public function searchAnime( $anime = '')
     {
+
         try {
 
             if ( empty($anime) ) {
