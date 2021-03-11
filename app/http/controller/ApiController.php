@@ -50,7 +50,6 @@ class ApiController
                                 [
                                     "anime" => [
                                         "nome" => ucFirst(str_replace("-", " ", $anime)),
-                                        "audio" => (strpos($links_format, "dublado")) ? "legendado" : "dublado",
                                         "slug" => $anime
                                     ],
                                     "links" => $links_succ,
@@ -68,7 +67,6 @@ class ApiController
                             [
                                 "anime" => [
                                     "nome" => ucFirst(str_replace("-", " ", $anime)),
-                                    "audio" => (strpos($links_format, "dublado")) ? "legendado" : "dublado",
                                     "slug" => $anime
                                 ],
                                 "links" => $links_succ,
@@ -283,8 +281,7 @@ class ApiController
                                     $i = (get_headers($links_format)[0] == "HTTP/1.1 500 Internal Server Error") ? $i - 1 : $i;
                                     dd( json_encode(
                                         ["anime" => 
-                                            ["nome" => ucFirst(str_replace("-", " ", $anime)), 
-                                                "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado", 
+                                            ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                                 "slug" => $anime 
                                             ],
                                         "episodes_found" => $i, 
@@ -298,8 +295,7 @@ class ApiController
                             } else {
                                 http_response_code(200);
                                 dd( json_encode(["anime" => 
-                                    ["nome" => ucFirst(str_replace("-", " ", $anime)), 
-                                        "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado", 
+                                    ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                         "slug" => $anime 
                                     ],
                                 "episodes_found" => $i, 
@@ -315,8 +311,7 @@ class ApiController
                                     $i = (get_headers($links_format)[0] == "HTTP/1.1 500 Internal Server Error") ? $i - 1 : $i;
                                     http_response_code(200);
                                     dd( json_encode(["anime" => 
-                                        ["nome" => ucFirst(str_replace("-", " ", $anime)), 
-                                            "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado", 
+                                        ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                             "slug" => $anime 
                                         ], 
                                         "episodes_found" => $i, 
@@ -331,8 +326,7 @@ class ApiController
                                 $i = (get_headers($links_format)[0] == "HTTP/1.1 500 Internal Server Error") ? $i - 1 : $i;
                                 http_response_code(200);
                                 dd( json_encode(["anime" => 
-                                    ["nome" => ucFirst(str_replace("-", " ", $anime)), 
-                                        "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado", 
+                                    ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                         "slug" => $anime 
                                     ],
                                 "episodes_found" => $i, 
