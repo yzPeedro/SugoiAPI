@@ -240,6 +240,7 @@ class ApiController
                             if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                                 if ( $i == $episodes ) {
                                     http_response_code(200);
+                                    $i = (get_headers($links_format)[0] == "HTTP/1.1 500 Internal Server Error") ? $i - 1 : $i;
                                     dd( json_encode(
                                         ["anime" => 
                                             ["nome" => ucFirst(str_replace("-", " ", $anime)), 
@@ -271,6 +272,7 @@ class ApiController
                             $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format);
                             if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                                 if ( $i == $episodes ) {
+                                    $i = (get_headers($links_format)[0] == "HTTP/1.1 500 Internal Server Error") ? $i - 1 : $i;
                                     http_response_code(200);
                                     dd( json_encode(["anime" => 
                                         ["nome" => ucFirst(str_replace("-", " ", $anime)), 
@@ -286,6 +288,7 @@ class ApiController
                                     continue;
                                 }
                             } else {
+                                $i = (get_headers($links_format)[0] == "HTTP/1.1 500 Internal Server Error") ? $i - 1 : $i;
                                 http_response_code(200);
                                 dd( json_encode(["anime" => 
                                     ["nome" => ucFirst(str_replace("-", " ", $anime)), 
