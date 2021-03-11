@@ -33,7 +33,7 @@ Nossa REST API é totalmente baseada no protocolo GET, sendo assim, conheça nos
 
 ## Exemplos de uso da API
 ```php
-$url = "https://pphoenix-api.herokuapp.com/pphoenix/one-piece";
+$url = "https://pphoenix-api.herokuapp.com/search_anime/one-piece";
 
 $response = json_decode(file_get_contents( $url ));
 print_r($response);
