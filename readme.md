@@ -6,7 +6,7 @@ Olá, nós da equipe Pphoenix desenvolvemos uma REST API para facilitar o acesso
 
 Nossa REST API é totalmente baseada no protocolo GET, sendo assim, conheça nossa rota base:
 
-    https://pphoenix-api.herokuapp.com/pphoenix/api
+    https://pphoenix-api.herokuapp.com/
 
   
 
@@ -33,7 +33,7 @@ Nossa REST API é totalmente baseada no protocolo GET, sendo assim, conheça nos
 
 ## Exemplos de uso da API
 ```php
-$url = "https://pphoenix-api.herokuapp.com/pphoenix/api/search_anime/one-piece";
+$url = "https://pphoenix-api.herokuapp.com/pphoenix/one-piece";
 
 $response = json_decode(file_get_contents( $url ));
 print_r($response);
@@ -42,7 +42,7 @@ print_r($response);
 Ou
 
 ```php
-$url = "https://pphoenix-api.herokuapp.com/pphoenix/api/search_anime/one-piece";
+$url = "https://pphoenix-api.herokuapp.com/search_anime/one-piece";
  
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
