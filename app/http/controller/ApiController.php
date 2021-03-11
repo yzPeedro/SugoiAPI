@@ -98,13 +98,20 @@ class ApiController
                     "https://cdn02.fluehost.com/a/$anime-dublado/hd/01.mp4",
                     "https://servertv001.com/animes/$anime_fc/$anime-dublado/01.mp4"
                 ];
+
+                $links_succ = [];
+
                 foreach ( $links as $links_format ) {
                     if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
-                        http_response_code(200);
-                        dd(json_encode(["anime" => $anime, "status_in_api" => true, "found_at" => $links_format, "status" => 200]));
+                        array_push($links_succ, $links_format);
                     } else if ( $links_format == end($links) ) {
+                        if ( !empty($links_succ) ) {
+                            http_response_code(200);
+                            dd(json_encode(["anime" => ["nome" => ucFirst(str_replace("-", " ", $anime)), "slug" => $anime], "exists" => true, "links" => $links_succ, "status" => 200]));
+                        }
+
                         http_response_code(404);
-                        dd(json_encode(["anime" => $anime, "status_in_api" => false, "status" => 404]));
+                        dd(json_encode(["anime" => ["nome" => ucFirst(str_replace("-", " ", $anime)), "slug" => $anime], "exists" => false, "links" => NULL, "status" => 404]));
                     }
                 }
             } else {
