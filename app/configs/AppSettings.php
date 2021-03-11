@@ -6,3 +6,6 @@ stream_context_set_default( [
         'verify_peer_name' => false,
     ],
 ]);
+
+ini_set('max_execution_time', '45');
+set_time_limit(45);

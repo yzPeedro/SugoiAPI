@@ -44,14 +44,31 @@ class ApiController
             foreach( $links as $links_format ) {
                 if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                     array_push($links_succ, $links_format);
-                    continue;
+                    if( $links_format == end($links) ) {
+                        if( !empty($links_succ) ) {
+                            dd(json_encode(
+                                [
+                                    "anime" => [
+                                        "nome" => ucFirst(str_replace("-", " ", $anime)),
+                                        "audio" => (strpos($links_format, "dublado")) ? "legendado" : "dublado",
+                                        "slug" => $anime
+                                    ],
+                                    "links" => $links_succ,
+                                    "status" => 200
+                                ]
+                            ));
+                        } else {
+                            dd(json_encode(["error" => "Not Found", "status" => 404]), false);
+                            http_response_code(404);
+                        }
+                    }
                 } elseif( $links_format == end($links) ) {
                     if( !empty($links_succ) ) {
                         dd(json_encode(
                             [
                                 "anime" => [
                                     "nome" => ucFirst(str_replace("-", " ", $anime)),
-                                    "audio" => (strpos($links_format, "dublado")) ? "dublado" : "legendado",
+                                    "audio" => (strpos($links_format, "dublado")) ? "legendado" : "dublado",
                                     "slug" => $anime
                                 ],
                                 "links" => $links_succ,
@@ -61,14 +78,13 @@ class ApiController
                     } else {
                         dd(json_encode(["error" => "Not Found", "status" => 404]), false);
                         http_response_code(404);
-                        die;
                     }
                 }
             }
 
         } catch (Exception $ex) {
+            dd(json_encode(["error" => "Internal Server Error", "status" => 500]), false);
             http_response_code(500);
-            dd(json_encode(["error" => "Internal Server Error", "status" => 500]));
         }
     }
 
@@ -104,7 +120,16 @@ class ApiController
                 foreach ( $links as $links_format ) {
                     if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                         array_push($links_succ, $links_format);
-                    } else if ( $links_format == end($links) ) {
+                        if ( $links_format == end($links) ) {
+                            if ( !empty($links_succ) ) {
+                                http_response_code(200);
+                                dd(json_encode(["anime" => ["nome" => ucFirst(str_replace("-", " ", $anime)), "slug" => $anime], "exists" => true, "links" => $links_succ, "status" => 200]));
+                            }
+    
+                            http_response_code(404);
+                            dd(json_encode(["anime" => ["nome" => ucFirst(str_replace("-", " ", $anime)), "slug" => $anime], "exists" => false, "links" => NULL, "status" => 404]));
+                        }
+                    } elseif ( $links_format == end($links) ) {
                         if ( !empty($links_succ) ) {
                             http_response_code(200);
                             dd(json_encode(["anime" => ["nome" => ucFirst(str_replace("-", " ", $anime)), "slug" => $anime], "exists" => true, "links" => $links_succ, "status" => 200]));
@@ -144,23 +169,23 @@ class ApiController
             ($episode < 10 && substr($episode, 0, 1) != "0") ? $episode = "0" . $episode : false;
             
             $links = [ 
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/01.mp4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/01.mp4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime/hd/01.mp4",
-                "https://servertv001.com/animes/$anime_fc/$anime/01.mp4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime/$episode.mp4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime/$episode.mp4",
+                "https://cdn02.fluehost.com/a/$anime/hd/$episode.mp4",
+                "https://servertv001.com/animes/$anime_fc/$anime/$episode.mp4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/01.mp4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/01.mp4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime-legendado/hd/01.mp4",
-                "https://servertv001.com/animes/$anime_fc/$anime-legendado/01.mp4",
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-legendado/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-legendado/$episode.mp4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-legendado/$episode.mp4",
+                "https://cdn02.fluehost.com/a/$anime-legendado/hd/$episode.mp4",
+                "https://servertv001.com/animes/$anime_fc/$anime-legendado/$episode.mp4",
             
-                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-dublado/01.mp4",
-                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-dublado/01.mp4",
-                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-dublado/01.mp4",
-                "https://cdn02.fluehost.com/a/$anime-dublado/hd/01.mp4",
-                "https://servertv001.com/animes/$anime_fc/$anime-dublado/01.mp4"
+                "https://ns569461.ip-51-79-82.net/$anime_FC/$anime-dublado/$episode.mp4",
+                "https://ns545982.ip-66-70-177.net/$anime_FC/$anime-dublado/$episode.mp4",
+                "https://cdn.superanimes.tv/010/animes/$anime_fc/$anime-dublado/$episode.mp4",
+                "https://cdn02.fluehost.com/a/$anime-dublado/hd/$episode.mp4",
+                "https://servertv001.com/animes/$anime_fc/$anime-dublado/$episode.mp4"
             ];
 
             $links_succ = [];
@@ -168,6 +193,21 @@ class ApiController
             foreach( $links as $links_format ) {
                 if ( get_headers($links_format)[2] == "Content-Type: video/mp4" || get_headers($links_format)[3] == "Content-Type: video/mp4" ) {
                     array_push($links_succ, $links_format);
+                    if( $links_format == end($links) ) {
+                        if ( $links_succ != [] ) {
+                            dd(json_encode([
+                                "anime" => [
+                                    "nome" => ucFirst(str_replace("-", " ", $anime)),
+                                    "slug" => $anime
+                                ],
+                                "links" => $links_succ,
+                                "status" => 200
+                            ]));
+                        } else {
+                            http_response_code(404);
+                            dd( json_encode(["error" => "Not Found", "status" => 404]));
+                        }
+                    }
                 } elseif( $links_format == end($links) ) {
                     if ( $links_succ != [] ) {
                         dd(json_encode([
