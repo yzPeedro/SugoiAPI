@@ -17,7 +17,7 @@ class RouterCore
 
     private function prepare()
     {
-        $this->uri = $_SERVER['REQUEST_URI'];
+        $this->uri = (substr($_SERVER['REQUEST_URI'], -1, 2) == "/") ? substr($_SERVER['REQUEST_URI'], 0, -1) : $_SERVER['REQUEST_URI'];
         $this->method = $_SERVER['REQUEST_METHOD'];        
     }
 

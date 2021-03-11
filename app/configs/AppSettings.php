@@ -1,5 +1,7 @@
 <?php
 
+namespace app\configs;
+
 stream_context_set_default( [
     'ssl' => [
         'verify_peer' => false,
@@ -7,5 +9,5 @@ stream_context_set_default( [
     ],
 ]);
 
-ini_set('max_execution_time', '45');
+ini_set('max_execution_time', '50');
 set_time_limit(45);

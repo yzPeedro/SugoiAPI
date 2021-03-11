@@ -2,6 +2,7 @@
 
 $url = (isset($_GET['url'])) ? explode("/", $_GET['url']) : "";
 
+(isset($url) && end($url) == "") ? array_pop($url) : "";
 (isset($url[1])) ? $anime = $url[1] : $anime = "";
 (isset($url[2])) ? $episode = $url[2] : $episode = "";
 
