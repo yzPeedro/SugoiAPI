@@ -14,7 +14,7 @@ Esta REST API é totalmente baseada no protocolo GET, sendo assim, conheça noss
 
 | Requisição | HTTP | Descrição | Paramêtro(s) |
 | :---: | :---: | :---: | :---: |
-| /count_to | GET | Essa função será responsável por contar quantos episódios existem em um determinado link, retornando verdadeiro ou falso para caso ele encontre ou não todos os episódios solicitados na requisição. | [ anime, episódios ] |
+| /count_to | GET | Essa função será responsável por contar quantos episódios existem em um determinado link, retornando verdadeiro ou falso para caso ele encontre ou não todos os episódios solicitados na requisição. | [ anime, quant-episódios ] |
 | /anime_exists | GET | Essa função será responsável por retornar um valor TRUE ou FALSE caso o anime exista ou não. | [ anime ] |
 | /get_episode | GET | Essa função será responsável por retornar um determinado episódio de um determinado anime. | [ anime, episódio ] |
 
