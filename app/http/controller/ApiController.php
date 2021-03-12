@@ -201,6 +201,7 @@ class ApiController
                                             ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                                 "slug" => $anime 
                                             ],
+                                        "requested_episodes" => intval($episodes),
                                         "episodes_found" => $i, 
                                         "found_all" => true, 
                                         "link" => $links_format = str_replace(substr($links_format, -7), $i . substr($links_format, -4), $links_format), 
@@ -215,6 +216,7 @@ class ApiController
                                     ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                         "slug" => $anime 
                                     ],
+                                "requested_episodes" => intval($episodes),
                                 "episodes_found" => $i, 
                                 "found_all" => false, 
                                 "link" => $links_format = str_replace(substr($links_format, -7), $i . substr($links_format, -4), $links_format), 
@@ -230,7 +232,8 @@ class ApiController
                                     dd( json_encode(["anime" => 
                                         ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                             "slug" => $anime 
-                                        ], 
+                                        ],
+                                        "requested_episodes" => intval($episodes), 
                                         "episodes_found" => $i, 
                                         "found_all" => true, 
                                         "link" => $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format), 
@@ -246,6 +249,7 @@ class ApiController
                                     ["nome" => ucFirst(str_replace("-", " ", $anime)),
                                         "slug" => $anime 
                                     ],
+                                "requested_episodes" => intval($episodes),
                                 "episodes_found" => $i, 
                                 "found_all" => false, 
                                 "link" => $links_format = str_replace(substr($links_format, -6), $i . substr($links_format, -4), $links_format),
