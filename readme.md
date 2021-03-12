@@ -12,17 +12,17 @@ Esta REST API é totalmente baseada no protocolo GET, sendo assim, conheça noss
 
 ## Parâmetros
 
-| Requisição | HTTP | Descrição | Paramêtros |
+| Requisição | HTTP | Descrição | Paramêtro(s) |
 | :---: | :---: | :---: | :---: |
-| /count_to | GET | Essa função será responsável por retornar TODOS os episódios encontrados em um determinado link | [ anime ] |
+| /count_to | GET | Essa função será responsável por contar quantos episódios existem em um determinado link, retornando verdadeiro ou falso para caso ele encontre ou não todos os episódios solicitados na requisição. | [ anime, episódios ] |
 | /anime_exists | GET | Essa função será responsável por retornar um valor TRUE ou FALSE caso o anime exista ou não. | [ anime ] |
-| /get_episode | GET | Essa função será responsável por retornar um determinado episódio | [ anime, episódio ] |
+| /get_episode | GET | Essa função será responsável por retornar um determinado episódio de um determinado anime. | [ anime, episódio ] |
 
   
 ## Exemplos de uso da API
 _usando php_
 ```php
-$url = "https://sugoi-api.herokuapp.com/search_anime/one-piece";
+$url = "https://sugoi-api.herokuapp.com/anime_exists/one-piece";
 
 $response = json_decode(file_get_contents( $url ));
 print_r($response);
@@ -31,7 +31,7 @@ print_r($response);
 Ou
 
 ```php
-$url = "https://sugoi-api.herokuapp.com/search_anime/one-piece";
+$url = "https://sugoi-api.herokuapp.com/anime_exists/one-piece";
  
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
