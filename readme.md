@@ -45,9 +45,9 @@ print_r($response);
 | Código | Status | Resposta |
 | :--- | :---: | :--: |
 | 200 | Ok | Requisição e resposta enviada com sucesso |
-| 404 | Not Found | Anime não encontrado ou Link de requisição não encontrado pela API |
+| 404 | Not Found | Anime/Episódio não encontrado ou Link de requisição não encontrado pela API |
 | 400 | Bad Request | Link requisitado pelo cliente está incorreto |
-| 500 | Internal Server Error | Erro de programação na API (favor contatar o desenvolvedor quando esse for o caso) |
+| 500 | Internal Server Error | Erro de programação na API |
 
 ## Sobre
 Dando uma pesquisada sobre animes acabei encontrando alguns links com padrões que vos levam a episódios legendados do anime que desejarmos!
