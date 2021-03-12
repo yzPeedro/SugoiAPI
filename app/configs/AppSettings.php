@@ -1,7 +1,5 @@
 <?php
 
-namespace app\configs;
-
 stream_context_set_default( [
     'ssl' => [
         'verify_peer' => false,
