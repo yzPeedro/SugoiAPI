@@ -28,7 +28,6 @@ class System
             }
         }
  
-        
         throw new \Exception("O arquivo de configuração não foi encontrado em '" . $file . "'.");
     }
 

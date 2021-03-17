@@ -19,19 +19,7 @@ Router::request(
 
 Router::request(
     ["GET", "POST"], 
-    BASE . "anime_exists/{anime}", 
-    [\App\Controller\ApiController::class => "verifyIfAnimeExists"]
-);
-
-Router::request(
-    ["GET", "POST"], 
-    BASE . "get_episode/{anime}/{episode}", 
-    [\App\Controller\ApiController::class => "getEpisode"]
-);
-
-Router::request(
-    ["GET", "POST"], 
-    BASE . "get_episode/{anime}/{episode}", 
+    BASE . "episode/{episode}/{anime}", 
     [\App\Controller\ApiController::class => "getEpisode"]
 );
 

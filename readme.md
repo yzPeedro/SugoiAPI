@@ -4,25 +4,19 @@ Olá, meu nome é Pedro, desenvolvi uma REST API para facilitar o acesso a algun
 
 # GET
 
-Esta REST API é totalmente baseada no protocolo GET, sendo assim, conheça nossa rota base:
-
-    https://sugoi-api.herokuapp.com/
-
-  
+Esta API foi feita para ser um REST API, sendo assim, conheça nossa rota base:
 
 ## Parâmetros
 
 | Requisição | HTTP | Descrição | Paramêtro(s) |
 | :---: | :---: | :---: | :---: |
-| /count_to | GET | Essa função será responsável por contar quantos episódios existem em um determinado link, retornando verdadeiro ou falso para caso ele encontre ou não todos os episódios solicitados na requisição. | [ anime, quant-episódios ] |
-| /anime_exists | GET | Essa função será responsável por retornar um valor TRUE ou FALSE caso o anime exista ou não. | [ anime ] |
-| /get_episode | GET | Essa função será responsável por retornar um determinado episódio de um determinado anime. | [ anime, episódio ] |
+| /episode | GET / POST | Esse endpoint retorna uma lista de CDN que contem o episodio requerido | [ número-do-episódio / anime ] |
 
   
 ## Exemplos de uso da API
 _usando php_
 ```php
-$url = "https://sugoi-api.herokuapp.com/anime_exists/one-piece";
+$url = "http://localhost/episode/01/naruto-classico";
 
 $response = json_decode(file_get_contents( $url ));
 print_r($response);
@@ -31,13 +25,65 @@ print_r($response);
 Ou
 
 ```php
-$url = "https://sugoi-api.herokuapp.com/anime_exists/one-piece";
+$url = "http://localhost/episode/01/naruto-classico";
  
 $ch = curl_init($url);
+
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
 $response = json_decode(curl_exec($ch));
+
+curl_close($ch);
+
 print_r($response);
+```
+
+## Retorno
+
+```json
+{
+  "status": 200,
+  "info": {
+    "name": "Naruto classico",
+    "slug": "naruto-classico",
+    "fc": "N",
+    "epi": "01"
+  },
+  "cdn": [
+    {
+      "name": "Ns545982",
+      "url": "https:\/\/ns545982.ip-66-70-177.net",
+      "links": [
+        "https:\/\/ns545982.ip-66-70-177.net\/N\/naruto-classico-legendado\/01.mp4"
+      ]
+    },
+    {
+      "name": "Superanimes",
+      "url": "https:\/\/cdn.superanimes.tv",
+      "links": [
+        "https:\/\/cdn.superanimes.tv\/010\/animes\/n\/naruto-classico-dublado\/01.mp4",
+        "https:\/\/cdn.superanimes.tv\/010\/animes\/n\/naruto-classico-legendado\/01.mp4"
+      ]
+    },
+    {
+      "name": "Serverotaku",
+      "url": "https:\/\/cdn.serverotaku01.co",
+      "links": [
+        "https:\/\/cdn.serverotaku01.co\/010\/animes\/n\/naruto-classico-dublado\/01.mp4",
+        "https:\/\/cdn.serverotaku01.co\/010\/animes\/n\/naruto-classico-legendado\/01.mp4"
+      ]
+    },
+    {
+      "name": "Servertv",
+      "url": "https:\/\/servertv001.com",
+      "links": [
+        "https:\/\/servertv001.com\/animes\/n\/naruto-classico-dublado\/01.mp4",
+        "https:\/\/servertv001.com\/animes\/n\/naruto-classico-legendado\/01.mp4"
+      ]
+    }
+  ]
+}
 ```
 
 ## Códigos de requisições (HTTP)
@@ -45,7 +91,6 @@ print_r($response);
 | Código | Status | Resposta |
 | :--- | :---: | :--: |
 | 200 | Ok | Requisição e resposta enviada com sucesso |
-| 404 | Not Found | Anime/Episódio não encontrado ou Link de requisição não encontrado pela API |
 | 400 | Bad Request | Link requisitado pelo cliente está incorreto |
 | 500 | Internal Server Error | Erro de programação na API |
 

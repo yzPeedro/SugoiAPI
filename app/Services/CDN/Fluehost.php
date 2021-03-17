@@ -2,11 +2,11 @@
 
 namespace App\Services\CDN;
 
-class Ns569461
+class Fluehost
 {
     private static $data = [
-        "name" => "Ns569461",
-        "url"  => "https://ns569461.ip-51-79-82.net"
+        "name" => "Fluehost",
+        "url"  => "https://cdn02.fluehost.com/"
     ];
 
     public static function mountURLSeach(array $data): array
@@ -17,17 +17,17 @@ class Ns569461
 
         array_push(
             $urls,
-            $url . "/" . $data["fc"] . "/" . $data["name"] . "/" . $data["epi"]. ".mp4"
+            $url . "/a/" . $data["name"] . "/" . $data["epi"]. ".mp4"
         );
 
         array_push(
             $urls,
-            $url . "/" . $data["fc"] . "/" . $data["name"] . "-legendado/" . $data["epi"]. ".mp4"
+            $url . "/a/" . $data["name"] . "-legendado/" . $data["epi"]. ".mp4"
         );
 
         array_push(
             $urls,
-            $url . "/" . $data["fc"] . "/" . $data["name"] . "-dublado/" . $data["epi"]. ".mp4"
+            $url . "/a/" . $data["name"] . "-dublado/" . $data["epi"]. ".mp4"
         );
 
         return $urls;

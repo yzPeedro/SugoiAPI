@@ -2,11 +2,11 @@
 
 namespace App\Services\CDN;
 
-class Ns569461
+class Ns545982
 {
     private static $data = [
-        "name" => "Ns569461",
-        "url"  => "https://ns569461.ip-51-79-82.net"
+        "name" => "Ns545982",
+        "url"  => "https://ns545982.ip-66-70-177.net"
     ];
 
     public static function mountURLSeach(array $data): array
