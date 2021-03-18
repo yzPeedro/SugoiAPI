@@ -1,6 +1,20 @@
 <?php
-require_once('vendor/autoload.php');
-require_once("app/configs/functions.php");
-require_once("app/configs/AppSettings.php");
 
-(new app\http\RouterCore);
+define("RAIZ", __DIR__);
+
+try
+{
+    require_once __DIR__ . "/vendor/autoload.php";
+    require_once __DIR__ . "/routers.php";
+}
+catch (Exception $e)
+{
+    $response = new App\Response();
+
+    return $response->setStatusCode(500)->json([
+        "status" => 500,
+        "error" => $e->getMessage()
+    ])->run();
+
+}
+
