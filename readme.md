@@ -6,6 +6,10 @@ Olá, meu nome é Pedro, desenvolvi uma REST API para facilitar o acesso a algun
 
 Esta API foi feita para ser um REST API, sendo assim, conheça nossa rota base:
 
+```
+https://sugoi-api.herokuapp.com
+```
+
 ## Parâmetros
 
 | Requisição | HTTP | Descrição | Paramêtro(s) |
@@ -16,7 +20,7 @@ Esta API foi feita para ser um REST API, sendo assim, conheça nossa rota base:
 ## Exemplos de uso da API
 _usando php_
 ```php
-$url = "http://localhost/episode/01/naruto-classico";
+$url = "https://sugoi-api.herokuapp.com/episode/01/naruto-classico";
 
 $response = json_decode(file_get_contents( $url ));
 print_r($response);
@@ -25,7 +29,7 @@ print_r($response);
 Ou
 
 ```php
-$url = "http://localhost/episode/01/naruto-classico";
+$url = "https://sugoi-api.herokuapp.com/episode/01/naruto-classico";
  
 $ch = curl_init($url);
 
