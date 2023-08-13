@@ -6,5 +6,6 @@ return [
     App\Services\CDN\Superanimes::class,
     App\Services\CDN\Fluehost::class,
     App\Services\CDN\Serverotaku::class,
-    App\Services\CDN\Servertv::class
+    App\Services\CDN\Servertv::class,
+    App\Services\CDN\LightSpeedst::class,
 ];

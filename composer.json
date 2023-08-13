@@ -6,10 +6,12 @@
             "email": "pedrocruzpessoa16@gmail.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "App\\": "app/"
         }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
     }
 }
