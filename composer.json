@@ -10,5 +10,10 @@
         "psr-4": {
             "App\\": "app/"
         }
+    },
+    "require": {
+        "symfony/var-dumper": "^6.3",
+        "ext-curl": "*",
+        "ext-json": "*"
     }
 }

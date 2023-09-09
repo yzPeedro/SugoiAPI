@@ -1,6 +1,9 @@
 <?php
 
-define("RAIZ", __DIR__);
+const RAIZ = __DIR__;
+
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 
 try
 {

@@ -24,7 +24,7 @@ class ApiController
                 ]
             ];
 
-            $data["cdn"] = $this->MountResponse($name, $fc, $args["episode"]);
+            $data["links"] = $this->MountResponse($name, $fc, $args["episode"]);
 
             return $response->setStatusCode(200)->json($data)->run();
         }
@@ -40,101 +40,54 @@ class ApiController
         $services = $this->getCdnServices();
 
         $links  = [];
-        $chs    = [];
-        $result = [];
+        $mh = curl_multi_init();
+        $successfulLinks = [];
 
-        foreach ($services as $service)
-        {
-            $links = array_merge($links, $service::mountURLSeach([
+        foreach ($services as $service) {
+            $links = array_merge($links, $service::mountURLSearch([
                 "name" => $name,
                 "fc" => $fc,
                 "epi" => $epi
             ]));
         }
 
-        foreach ($links as $link)
-        {
+        foreach ($links as $link) {
             $ch = curl_init($link);
 
             curl_setopt_array($ch, [
-                CURLOPT_RETURNTRANSFER => 1, 
-                CURLOPT_HEADER => 1,       
-                CURLOPT_CONNECTTIMEOUT => 1,
-                CURLOPT_TIMEOUT => 9,
-                CURLOPT_NOBODY => 1
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HEADER => true,
+                CURLOPT_CONNECTTIMEOUT => true,
+                CURLOPT_NOBODY => true,
+                CURLOPT_SSL_VERIFYPEER => false,
             ]);
 
-            array_push($chs, $ch);
+            curl_multi_add_handle($mh, $ch);
         }
 
-        $mch = curl_multi_init();
+        do {
+            $status = curl_multi_exec($mh, $active);
 
-        foreach ($chs as $ch)
-        {
-            curl_multi_add_handle($mch, $ch);
-        }
-
-        $active = null;
-        $mrc = 0;
-
-        do
-        {
-            $mrc = curl_multi_exec($mch, $active);
-            curl_multi_select($mch);
-        } while ($mrc == CURLM_CALL_MULTI_PERFORM);
-
-        while ($active && $mrc == CURLM_OK)
-        {
-            if (curl_multi_select($mch) != -1)
-            {
-                do {
-                    $mrc = curl_multi_exec($mch, $active);
-                } while ($mrc == CURLM_CALL_MULTI_PERFORM);
-            }
-        }
-
-        for ($num = 0; $num < count($chs); $num++)
-        {
-            if (curl_getinfo($chs[$num], CURLINFO_CONTENT_TYPE) == "video/mp4")
-            {
-                $info = (int) ($num / 3);
-
-                if (!array_key_exists((int) ($num / 3), $result))
-                {
-                    $result[$info] = array_merge(
-                        $services[$info]::getDataService(),
-                        [
-                            "links" => [$links[$num]]
-                        ]
-                    );
-                }
-                else
-                {
-                    array_push($result[$info]["links"], $links[$num]);
-                }
+            if ($active) {
+                curl_multi_select($mh);
             }
 
-            curl_multi_remove_handle($mch, $chs[$num]);
-        }
+            while (false !== ($info = curl_multi_info_read($mh))) {
+                $http_code = curl_getinfo($info['handle'], CURLINFO_HTTP_CODE);
+                $content_type = curl_getinfo($info['handle'], CURLINFO_CONTENT_TYPE);
+                $url = curl_getinfo($info['handle'], CURLINFO_EFFECTIVE_URL);
 
-        curl_multi_close($mch);
+                if ($http_code === 200 && $content_type === 'video/mp4') {
+                    $successfulLinks[] = $url;
+                }
+            }
+        } while ($active && $status == CURLM_OK);
 
-        $res = [];
-
-        foreach ($result as $cdn)
-        {
-            array_push($res, $cdn);
-        }
-        
-        return $res;
+        return $successfulLinks;
     }
 
     private function getCdnServices(): array
     {
-        $data = [];
-
-        $data = System::getConfig("list_cdn_services");
-
-        return $data;
+        return System::getConfig("list_cdn_services");
     }
 }
