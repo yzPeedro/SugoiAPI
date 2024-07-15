@@ -6,15 +6,22 @@
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
+        "ext-dom": "*",
         "ext-iconv": "*",
+        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/promises": "^2.0",
+        "phpdocumentor/reflection-docblock": "^5.4",
+        "phpstan/phpdoc-parser": "^1.29",
         "symfony/console": "7.1.*",
         "symfony/dotenv": "7.1.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.1.*",
+        "symfony/property-access": "7.1.*",
+        "symfony/property-info": "7.1.*",
         "symfony/runtime": "7.1.*",
-        "symfony/yaml": "7.1.*"
-    },
-    "require-dev": {
+        "symfony/serializer": "7.1.*",
+        "symfony/yaml": "7.1.*",
+        "wyrihaximus/list-classes-in-directory": "^1.6"
     },
     "config": {
         "allow-plugins": {
@@ -64,5 +71,13 @@
             "allow-contrib": false,
             "require": "7.1.*"
         }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.59",
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "7.1.*",
+        "symfony/css-selector": "7.1.*",
+        "symfony/phpunit-bridge": "^7.1"
     }
 }
