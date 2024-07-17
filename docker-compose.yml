@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "1010:1010"
+    volumes:
+      - ./:/app
+    command: php -S 0.0.0.0:1010 -t public/ -d error_reporting=E_ALL & ~E_NOTICE & ~E_STRICT -d display_errors=On

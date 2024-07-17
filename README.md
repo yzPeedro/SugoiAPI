@@ -2,16 +2,14 @@
 # SugoiAPI
 
 Olá, este é um projeto open source para compartilhar links de animes de maneira fácil e rápida, sinta-se à vontade para contribuir com o projeto.
-Por enquanto o projeto não está hospedado em nenhum servidor, porém você pode clonar o repositório e rodar localmente com os comandos abaixo:
+Por enquanto o projeto não está hospedado em nenhum servidor, porém você pode clonar o repositório e rodar localmente com o docker:
 
 ```bash
 > git clone https://github.com/yzPeedro/SugoiAPI.git sugoiapi 
 
 > cd sugoiapi
 
-> composer install
-
-> symfony server:start
+> docker compose up -d
 ```
 
 ## Parâmetros
