@@ -5,7 +5,6 @@ namespace App\Support\Traits;
 use App\Actions\Providers\SerializeEpisodeAction;
 use App\Support\Media;
 use GuzzleHttp\Client;
-use Throwable;
 
 trait SearchEngine
 {
@@ -18,7 +17,7 @@ trait SearchEngine
         }
 
         $endpoints = [
-            $this->getSearchEpisodeEndpoint($episodeNumber, $season, $slug)
+            $this->getSearchEpisodeEndpoint($episodeNumber, $season, $slug),
         ];
 
         if (!$this->canUsePrefix() && !$this->canUserSuffix()) {
@@ -41,7 +40,7 @@ trait SearchEngine
     }
 
     /**
-     * @throws Throwable
+     * @throws \Throwable
      */
     public function search(int $episodeNumber, int $season, string $slug): array
     {
@@ -70,7 +69,7 @@ trait SearchEngine
                         'episode' => $endpoint,
                     ],
                 };
-            } catch (Throwable) {
+            } catch (\Throwable) {
                 if (!$this->ignoreOnFail()) {
                     $response[] = [
                         'error' => true,
