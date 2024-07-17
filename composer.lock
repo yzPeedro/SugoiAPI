@@ -3779,82 +3779,34 @@
             "time": "2022-06-03T18:03:27+00:00"
         },
         {
-            "name": "wyrihaximus/constants",
-            "version": "1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/WyriHaximus/php-constants.git",
-                "reference": "32ceffdd881593c7fa24d8fcbf9deb58687484cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-constants/zipball/32ceffdd881593c7fa24d8fcbf9deb58687484cb",
-                "reference": "32ceffdd881593c7fa24d8fcbf9deb58687484cb",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8 || ^7 || ^5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/Boolean/constants_include.php",
-                    "src/ComposerAutoloader/constants_include.php",
-                    "src/HTTPStatusCodes/constants_include.php",
-                    "src/Numeric/constants_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cees-Jan Kiewiet",
-                    "email": "ceesjank@gmail.com",
-                    "homepage": "https://www.wyrihaximus.net/"
-                }
-            ],
-            "description": "Collection of constants for PHP",
-            "support": {
-                "issues": "https://github.com/WyriHaximus/php-constants/issues",
-                "source": "https://github.com/WyriHaximus/php-constants/tree/1.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/WyriHaximus",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-11-28T12:04:43+00:00"
-        },
-        {
             "name": "wyrihaximus/list-classes-in-directory",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-list-classes-in-directory.git",
-                "reference": "d11c870f495a013005af10babf5b20adc8abe5ab"
+                "reference": "3c9f96fe973a47a917830dd926a7153e5bb8338f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-list-classes-in-directory/zipball/d11c870f495a013005af10babf5b20adc8abe5ab",
-                "reference": "d11c870f495a013005af10babf5b20adc8abe5ab",
+                "url": "https://api.github.com/repos/WyriHaximus/php-list-classes-in-directory/zipball/3c9f96fe973a47a917830dd926a7153e5bb8338f",
+                "reference": "3c9f96fe973a47a917830dd926a7153e5bb8338f",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "roave/better-reflection": "^6",
-                "wyrihaximus/constants": "^1.6"
+                "roave/better-reflection": "^6.5"
             },
             "require-dev": {
-                "wyrihaximus/async-test-utilities": "^6.0.0"
+                "wyrihaximus/test-utilities": "^6.0.9"
             },
             "type": "library",
             "autoload": {
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "WyriHaximus\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3869,7 +3821,7 @@
             "description": "Allows you to list full qualified class names in directories and files.",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-list-classes-in-directory/issues",
-                "source": "https://github.com/WyriHaximus/php-list-classes-in-directory/tree/1.6.0"
+                "source": "https://github.com/WyriHaximus/php-list-classes-in-directory/tree/1.7.0"
             },
             "funding": [
                 {
@@ -3877,7 +3829,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-10T18:32:40+00:00"
+            "time": "2024-07-16T12:35:06+00:00"
         }
     ],
     "packages-dev": [
