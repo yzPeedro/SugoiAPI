@@ -5,7 +5,11 @@ Olá, este é um projeto open source para compartilhar links de animes de maneir
 Por enquanto o projeto não está hospedado em nenhum servidor, porém você pode clonar o repositório e rodar localmente com o docker:
 
 ```bash
-docker compose up -d
+> git clone https://github.com/yzPeedro/SugoiAPI.git sugoiapi 
+
+> cd sugoiapi
+
+> docker compose up -d
 ```
 
 ## Parâmetros
