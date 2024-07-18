@@ -1,4 +1,7 @@
 {
+    "name": "yzpeedro/sugoi-api",
+    "description": "Api desenvolvida pra galera assistir uns animes legendados sem ter que passar por 300 anúncios :)",
+    "version": "2.3.2",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
