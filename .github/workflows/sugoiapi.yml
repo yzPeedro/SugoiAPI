@@ -19,7 +19,7 @@ jobs:
           php-version: '8.3'
           extensions: mbstring, xml, ctype, json, openssl, session, xmlwriter, simplexml, dom, xml, curl, phar, iconv, fileinfo, zip, gd, intl
       - name: Install dependencies
-        uses: "ramsey/composer-install@v3"
+        run: composer install
       - name: Run PHP-CS-Fixer
         run: vendor/bin/php-cs-fixer fix -v
       - name: Run PHPUnit
