@@ -17,9 +17,15 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: mbstring, xml, ctype, json, tokenizes, openssl, session, xmlwriter, simplexml, dom, xml, curl, phar, iconv, fileinfo, zip, gd, intl, proccess, pecl-pcov, pecl-xdebug
+          extensions: mbstring, xml, ctype, json, openssl, session, xmlwriter, simplexml, dom, xml, curl, phar, iconv, fileinfo, zip, gd, intl
       - name: Install dependencies
         uses: php-actions/composer@v6
+        env:
+          COMPOSER: "composer.json"
+        with:
+          php_version: "8.3"
+          version: "2.2"
+          working_dir: "./"
       - name: Run PHP-CS-Fixer
         run: vendor/bin/php-cs-fixer fix -v
       - name: Run PHPUnit
