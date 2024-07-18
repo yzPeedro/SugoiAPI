@@ -9,13 +9,10 @@ use App\Providers\Contracts\MediaProviderRulesInterface;
 use App\Support\Traits\WithInterfaces;
 use PHPUnit\Framework\TestCase;
 
-use function WyriHaximus\listClassesInDirectory;
-
 class ProviderTest extends TestCase
 {
     use WithInterfaces;
 
-    /** @test */
     public function testProvidersMustImplementsAllRequiredInterfaces(): void
     {
         $providers = Kernel::PROVIDERS;
@@ -26,14 +23,14 @@ class ProviderTest extends TestCase
         }
     }
 
-    /** @test */
     public function testAllProvidersMustBeRegistered(): void
     {
-        $classes = listClassesInDirectory(__DIR__.'/../../../src/Providers');
+        $classes = $this->getProvidersFromDirectory();
         $providers = Kernel::PROVIDERS;
 
-        foreach ($providers as $provider) {
-            $this->assertContains($provider, $classes);
-        }
+        sort($providers);
+        sort($classes);
+
+        $this->assertEquals($providers, $classes);
     }
 }

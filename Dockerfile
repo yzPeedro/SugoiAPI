@@ -7,8 +7,6 @@ RUN apk add --no-cache \
     php-json \
     php-tokenizer \
     php-openssl \
-    php-pdo \
-    php-pdo_mysql \
     php-session \
     php-xmlwriter \
     php-xmlreader \
@@ -27,7 +25,7 @@ WORKDIR /app
 
 COPY composer.json composer.phar
 
-RUN php composer.phar install --ignore-platform-reqs
+RUN php composer.phar install
 
 COPY . .
 

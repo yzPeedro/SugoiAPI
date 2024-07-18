@@ -9,7 +9,6 @@ class HandleProvidersTest extends TestCase
 {
     use HandleProviders;
 
-    /** @test */
     public function testIsRegisteredMethodWorksAsExpected(): void
     {
         $this->assertFalse(
