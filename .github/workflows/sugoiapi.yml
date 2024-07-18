@@ -1,0 +1,28 @@
+name: SugoiApi
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  setup-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, xml, ctype, json, tokenizes, openssl, session, xmlwriter, simplexml, dom, xml, curl, phar, iconv, fileinfo, zip, gd, intl, proccess, pecl-pcov, pecl-xdebug
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          command: composer install --ignore-platform-reqs
+      - name: Run PHP-CS-Fixer
+        run: vendor/bin/php-cs-fixer fix -v
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit
