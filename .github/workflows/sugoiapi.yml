@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@d8af2f43ce846ab2abc7274f8d18fd10dc5a1345
         with:
           php-version: '8.3'
           extensions: mbstring, xml, ctype, json, openssl, session, xmlwriter, simplexml, dom, xml, curl, phar, iconv, fileinfo, zip, gd, intl
