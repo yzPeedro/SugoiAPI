@@ -21,10 +21,12 @@
         "symfony/framework-bundle": "7.1.*",
         "symfony/property-access": "7.1.*",
         "symfony/property-info": "7.1.*",
-        "symfony/runtime": "7.1.*",
+        "symfony/runtime": "@stable",
         "symfony/serializer": "7.1.*",
         "symfony/yaml": "7.1.*",
-        "wyrihaximus/list-classes-in-directory": "^1.6"
+        "wyrihaximus/list-classes-in-directory": "^1.6",
+        "symfony/process": "@stable",
+        "symfony/http-foundation": "@stable"
     },
     "config": {
         "allow-plugins": {
