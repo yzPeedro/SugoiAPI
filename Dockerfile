@@ -23,7 +23,9 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-COPY composer.json composer.phar
+COPY composer.json .
+
+RUN curl -sS https://getcomposer.org/installer | php
 
 RUN php composer.phar install
 
