@@ -1,5 +1,7 @@
 FROM php:8.3-alpine
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 RUN apk add --no-cache \
     php-mbstring \
     php-xml \
