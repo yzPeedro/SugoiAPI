@@ -7,4 +7,5 @@ services:
       - "1010:1010"
     volumes:
       - ./:/app
+      - /app/vendor
     command: php -S 0.0.0.0:1010 -t public/ -d error_reporting=E_ALL & ~E_NOTICE & ~E_STRICT -d display_errors=On
